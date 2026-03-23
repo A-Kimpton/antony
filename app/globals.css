@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0d0d0d;
+  --surface: #141414;
+  --border: #1f1f1f;
+  --text: #e8e8e8;
+  --muted: #555;
+  --accent: #a78bfa;
+  --dim: #333;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+a.profile-link {
+  color: var(--accent);
+  font-size: 0.8rem;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+}
+
+a.profile-link:hover {
+  opacity: 1;
+}
