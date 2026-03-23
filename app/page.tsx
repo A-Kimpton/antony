@@ -1,3 +1,6 @@
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+
 const links = [
   { label: "github", href: "https://github.com/A-Kimpton" },
   { label: "kimpton.io", href: "https://kimpton.io" },
@@ -14,47 +17,29 @@ const stack = [
 export default function Home() {
   return (
     <main>
-      <div
-        style={{
-          background: "var(--surface)",
-          border: "1px solid var(--border)",
-          borderRadius: "12px",
-          padding: "2rem",
-          maxWidth: "520px",
-          width: "100%",
-        }}
-      >
-        {/* Header */}
-        <div style={{ marginBottom: "1.5rem" }}>
-          <div style={{ color: "var(--muted)", fontSize: "0.75rem", marginBottom: "0.25rem" }}>
-            ~/antony
-          </div>
-          <h1 style={{ fontSize: "1.4rem", fontWeight: 700, color: "var(--text)", margin: 0 }}>
-            Antony Kimpton
-          </h1>
-          <div style={{ color: "var(--accent)", fontSize: "0.85rem", marginTop: "0.25rem" }}>
+      <Card className="max-w-[520px] w-full font-mono text-sm border-border">
+        <CardHeader className="pb-0">
+          <div className="text-xs text-muted-foreground">~/antony</div>
+          <h1 className="text-[1.4rem] font-bold text-foreground mt-0">Antony Kimpton</h1>
+          <div className="text-[0.85rem]" style={{ color: "#a78bfa" }}>
             software engineer · uk
           </div>
-        </div>
+        </CardHeader>
 
-        {/* Divider */}
-        <div style={{ borderTop: "1px solid var(--border)", marginBottom: "1.5rem" }} />
+        <Separator className="mx-4 w-auto" />
 
-        {/* What I do */}
-        <div style={{ marginBottom: "1.5rem" }}>
+        <CardContent className="flex flex-col gap-[0.4rem]">
           {stack.map((line) => (
-            <div key={line} style={{ display: "flex", gap: "0.75rem", marginBottom: "0.4rem", fontSize: "0.85rem" }}>
-              <span style={{ color: "var(--dim)" }}>▸</span>
-              <span style={{ color: "var(--text)" }}>{line}</span>
+            <div key={line} className="flex gap-3">
+              <span className="text-[#333]">▸</span>
+              <span className="text-foreground">{line}</span>
             </div>
           ))}
-        </div>
+        </CardContent>
 
-        {/* Divider */}
-        <div style={{ borderTop: "1px solid var(--border)", marginBottom: "1.25rem" }} />
+        <Separator className="mx-4 w-auto" />
 
-        {/* Links */}
-        <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap" }}>
+        <CardContent className="flex gap-5 flex-wrap pb-4">
           {links.map(({ label, href }) => (
             <a
               key={label}
@@ -66,8 +51,8 @@ export default function Home() {
               {label} ↗
             </a>
           ))}
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </main>
   );
 }
